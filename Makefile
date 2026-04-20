@@ -18,9 +18,15 @@ fmt: ## Format the code using cargo fmt
 	@rustup component add rustfmt 2>/dev/null
 	cargo fmt
 
-bump: ## Bump the version using cargo bump
+bump: ## Bump the version number in Cargo.toml
 	@echo "Current version is $(shell cargo pkgid | cut -d# -f2)"
 	@read -p "Enter new version number : " version; \
 	updated_version=$$(cargo pkgid | cut -d# -f2 | sed -E "s/([0-9]+\.[0-9]+\.[0-9]+)$$/$$version/"); \
 	sed -i -E "s/^version = .*/version = \"$$updated_version\"/" Cargo.toml
 	@echo "New version is $(shell cargo pkgid | cut -d# -f2)"
+
+test: ## Run tests using cargo test
+	cargo test
+
+doc: ## Generate documentation using cargo doc
+	cargo doc --open

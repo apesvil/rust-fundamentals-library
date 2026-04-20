@@ -1,14 +1,14 @@
 //! Colorized output utilities for the terminal using ANSI escape codes.
 //! # Examples:
 //! ```
-//! use cli_utils::colors::*;
+//! use my_library::colors::*;
 //! println!("{}{}{}", red("Red"), green("Green"), blue("Blue"));
 //! ```
 
 /// Returns a string with the ANSI escape code for red.
 /// # Examples:
 /// ```
-/// use cli_utils::colors::*;
+/// use my_library::colors::*;
 /// println!("{}", red("Red"));
 /// ```
 pub fn red(s: &str) -> String {
@@ -18,7 +18,7 @@ pub fn red(s: &str) -> String {
 /// Returns a string with the ANSI escape code for green.
 /// # Examples:
 /// ```
-/// use cli_utils::colors::*;
+/// use my_library::colors::*;
 /// println!("{}", green("Green"));
 /// ```
 pub fn green(s: &str) -> String {
@@ -28,7 +28,7 @@ pub fn green(s: &str) -> String {
 /// Returns a string with the ANSI escape code for blue.
 /// # Examples:
 /// ```
-/// use cli_utils::colors::*;
+/// use my_library::colors::*;
 /// println!("{}", blue("Blue"));
 /// ```
 pub fn blue(s: &str) -> String {
@@ -38,7 +38,7 @@ pub fn blue(s: &str) -> String {
 /// Returns a string with the ANSI escape code for bold.
 /// # Examples:
 /// ```
-/// use cli_utils::colors::*;
+/// use my_library::colors::*;
 /// println!("{}", bold("Bold"));
 /// ```
 pub fn bold(s: &str) -> String {
@@ -48,7 +48,7 @@ pub fn bold(s: &str) -> String {
 /// Returns a string with the ANSI escape code for resetting the color.
 /// # Examples:
 /// ```
-/// use cli_utils::colors::*;
+/// use my_library::colors::*;
 /// println!("{}", reset("Reset"));
 /// ```
 pub fn reset(s: &str) -> String {
@@ -58,7 +58,7 @@ pub fn reset(s: &str) -> String {
 /// An enum representing the available colors for colorizing strings.
 /// # Examples:
 /// ```
-/// use cli_utils::colors::Color;
+/// use my_library::colors::Color;
 /// let color = Color::Red;
 /// ```
 pub enum Color{
@@ -71,7 +71,7 @@ pub enum Color{
 /// A struct that contains a color, a string, a colorized version of the string, and a reset counter.
 /// # Examples:
 /// ```
-/// use cli_utils::colors::{Color, ColorString};
+/// use my_library::colors::{Color, ColorString};
 /// let mut color_string = ColorString { color: Color::Red, string: String::from("Hello"), colorized: String::new(), reset_counter: 0 };
 /// println!("{}", color_string.string);
 /// ```
@@ -87,8 +87,8 @@ impl ColorString {
     /// This method uses the `color` and `string` fields to create a colorized string and assigns it to the `colorized` field.
     /// # Examples:
     /// ```
-    /// use cli_utils::colors::{Color, ColorString};
-    /// let mut color_string = ColorString { color: Color::Red, string: String::from("Hello"), colorized: String::new() };
+    /// use my_library::colors::{Color, ColorString};
+    /// let mut color_string = ColorString { color: Color::Red, string: String::from("Hello"), colorized: String::new(), reset_counter: 0 };
     /// color_string.paint();
     /// println!("{}", color_string.colorized);
     /// ```
@@ -104,8 +104,8 @@ impl ColorString {
     /// This method resets the colorized string to the original string with the reset ANSI escape code and increments the reset counter.
     /// # Examples:
     /// ```
-    /// use cli_utils::colors::{Color, ColorString};
-    /// let mut color_string = ColorString { color: Color::Red, string: String::from("Hello"), colorized: String::new() };
+    /// use my_library::colors::{Color, ColorString};
+    /// let mut color_string = ColorString { color: Color::Red, string: String::from("Hello"), colorized: String::new(), reset_counter: 0 };
     /// color_string.paint();
     /// println!("{}", color_string.colorized);
     /// color_string.reset();

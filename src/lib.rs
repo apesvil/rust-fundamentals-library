@@ -2,7 +2,7 @@
 //! So far it only provides a function to read a line from stdin.
 //! # Examples:
 //! ```
-//! use cli_utils::read_stdin;
+//! use my_library::read_stdin;
 //! let input = read_stdin();
 //! ```
 //! # Panics:
@@ -18,7 +18,7 @@ pub mod colors;
 /// It will panic if it fails to read a line with a message "Failed to read input line".
 /// # Examples:
 /// ```
-/// use cli_utils::read_stdin;
+/// use my_library::read_stdin;
 /// let input = read_stdin();
 /// ```
 pub fn read_stdin() -> String {
