@@ -29,3 +29,9 @@ To open it in the browser, run
 ```
 cargo doc --open
 ```
+
+To run the doctests, run
+
+```
+cargo test --doc
+```

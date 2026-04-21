@@ -30,12 +30,28 @@ pub enum LogOutput {
 /// use my_library::config::{Logging, LogLevel, LogOutput};
 /// let config = Logging{ enabled: true, level: LogLevel::Info, destination: LogOutput::Stdout };
 /// ```
+/// 
+/// Modifying the Logging struct:
+/// ```
+/// use my_library::config::{Logging, LogLevel, LogOutput};
+/// let mut config = Logging::new();
+/// config.enabled = true;
+/// config.level = LogLevel::Debug;
+/// config.destination = LogOutput::File(String::from("log.txt"));
+/// ```
+
 pub struct Logging {
     pub enabled: bool,
     pub level: LogLevel,
     pub destination: LogOutput,   
 }
 
+/// This implementation block provides a constructor for the Logging struct.
+/// # Examples:
+/// ```
+/// use my_library::config::Logging;
+/// let config = Logging::new();
+/// ```
 impl Logging {
     pub fn new() -> Self {
         Self {
