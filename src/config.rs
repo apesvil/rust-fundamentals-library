@@ -52,6 +52,14 @@ pub struct Logging {
 /// use my_library::config::Logging;
 /// let config = Logging::new();
 /// ```
+/// Getting the fields
+/// ```
+/// use my_library::config::Logging;
+/// let config = Logging::new();
+/// config.is_enabled();
+/// config.get_level();
+/// config.get_destination();
+/// ```
 impl Logging {
     pub fn new() -> Self {
         Self {
@@ -60,4 +68,51 @@ impl Logging {
             destination: LogOutput::Stdout,
         }
     }
+
+    pub fn is_enabled(&self) -> bool {
+        self.enabled
+    }
+
+    pub fn get_level(&self) -> &LogLevel {
+        &self.level
+    }
+
+    pub fn get_destination(&self) -> &LogOutput {
+        &self.destination
+    }
+
+    /// Enable and disable the Logging
+    /// # Example:
+    /// ```
+    /// use my_library::config::Logging;
+    /// let mut config = Logging::new();
+    /// config.disable();
+    /// config.enable();
+    /// ```
+    pub fn enable(&mut self) {
+        self.enabled = true;
+    }
+
+    pub fn disable(&mut self) {
+        self.enabled = false;
+    }
+
+    /// Set the Logging level and destination fields
+    /// # Example:
+    /// ```
+    /// use my_library::config::{Logging, LogLevel, LogOutput};
+    /// let mut config = Logging::new();
+    /// let new_level = LogLevel::Debug;
+    /// let new_destination = LogOutput::File("file.txt".to_string());
+    /// config.set_level(new_level);
+    /// config.set_destination(new_destination);
+    /// ```
+    pub fn set_level(&mut self, new_level: LogLevel) {
+        self.level = new_level;
+    }
+
+    pub fn set_destination(&mut self, new_destination: LogOutput) {
+        self.destination = new_destination;
+    }
+
 }
