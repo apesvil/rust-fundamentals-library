@@ -5,6 +5,8 @@
 //! let config = Logging::new();
 //! ```
 //! 
+
+#[derive(Debug, PartialEq, Eq)]
 pub enum LogLevel {
     Debug,
     Info,
@@ -12,6 +14,7 @@ pub enum LogLevel {
     Error,
 }
 
+#[derive(Debug, PartialEq, Eq)]
 pub enum LogOutput {
     Stdout,
     Stderr,
@@ -40,6 +43,7 @@ pub enum LogOutput {
 /// config.destination = LogOutput::File(String::from("log.txt"));
 /// ```
 
+#[derive(Debug, PartialEq, Eq)]
 pub struct Logging {
     pub enabled: bool,
     pub level: LogLevel,
